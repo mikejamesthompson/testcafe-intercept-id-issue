@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <title>TestCafé test case: InterceptId issue</title>
+</head>
+
+<body>
+  <h1>Index page</h1>
+  <button>Click me!</button>
+
+  <script>
+    const button = document.querySelector('button');
+    button.addEventListener('click', async (e) => {
+      await fetch('/notfound.json').then((response) => {
+        if (!response.ok) {
+          setTimeout(() => {
+            window.location.href = '/destination.html';
+          }, 250);
+        } else {
+          console.log(response);
+        }
+      })
+    });
+  </script>
+</body>
+
+</html>
