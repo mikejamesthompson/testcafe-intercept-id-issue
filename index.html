@@ -12,6 +12,7 @@
   <button>Click me!</button>
 
   <script>
+    document.cookie = 'foo=bar; SameSite=Lax; Secure';
     const button = document.querySelector('button');
     button.addEventListener('click', async (e) => {
       await fetch('/notfound.json').then((response) => {

@@ -6,6 +6,7 @@ fixture`TestCafé Chromium Test`
 test('window.location.href navigation [1]', async () => {
   await t
     .expect(Selector('h1').innerText).eql('Index page')
+    .deleteCookies('foo')
     .click(Selector('button'))
     .expect(Selector('h1').innerText).eql('Destination page');
 });
@@ -13,6 +14,7 @@ test('window.location.href navigation [1]', async () => {
 test('window.location.href navigation [2]', async () => {
   await t
     .expect(Selector('h1').innerText).eql('Index page')
+    .deleteCookies('foo')
     .click(Selector('button'))
     .expect(Selector('h1').innerText).eql('Destination page');
 });
@@ -20,6 +22,7 @@ test('window.location.href navigation [2]', async () => {
 test('window.location.href navigation [3]', async () => {
   await t
     .expect(Selector('h1').innerText).eql('Index page')
+    .deleteCookies('foo')
     .click(Selector('button'))
     .expect(Selector('h1').innerText).eql('Destination page');
 });
@@ -27,6 +30,7 @@ test('window.location.href navigation [3]', async () => {
 test('window.location.href navigation [4]', async () => {
   await t
     .expect(Selector('h1').innerText).eql('Index page')
+    .deleteCookies('foo')
     .click(Selector('button'))
     .expect(Selector('h1').innerText).eql('Destination page');
 });
@@ -34,6 +38,7 @@ test('window.location.href navigation [4]', async () => {
 test('window.location.href navigation [5]', async () => {
   await t
     .expect(Selector('h1').innerText).eql('Index page')
+    .deleteCookies('foo')
     .click(Selector('button'))
     .expect(Selector('h1').innerText).eql('Destination page');
 });
