@@ -15,15 +15,22 @@
     document.cookie = 'foo=bar; SameSite=Lax; Secure';
     const button = document.querySelector('button');
     button.addEventListener('click', async (e) => {
-      await fetch('/notfound.json').then((response) => {
-        if (!response.ok) {
+      const xhr = new XMLHttpRequest();
+      xhr.onload = () => {
+        if (xhr.status >= 400) {
           setTimeout(() => {
             window.location.href = '/destination.html';
           }, 250);
-        } else {
-          console.log(response);
+          return;
         }
-      })
+        console.log(xhr.responseText);
+      };
+      xhr.onerror = () => {
+        console.log(xhr.response);
+      };
+      xhr.open('GET', '/notfound.json');
+      xhr.setRequestHeader('Cache-Control', 'max-stale');
+      xhr.send();
     });
   </script>
 </body>
